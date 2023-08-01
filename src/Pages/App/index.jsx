@@ -9,6 +9,8 @@ import MyOrders from "../MyOrders"
 import NotFound from "../NotFound"
 import SignIn from "../SigIn"
 import NavBar from "../../Components/Navbar"
+import { ShoppingCartProvider, ShoppingCartContext } from "../../Context"
+
 
 
 const router = createBrowserRouter([
@@ -47,10 +49,13 @@ function App() {
 
 
   return (
-    <>
-      <RouterProvider router={router} />
+    <ShoppingCartProvider>
 
-    </>
+
+      <RouterProvider router={router} />
+    </ShoppingCartProvider>
+
+
   )
 }
 
