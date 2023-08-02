@@ -11,9 +11,14 @@ function ShoppingCartProvider({ children }) {
         title: '',
         price: '',
         image: '',
-        description: ''
+        description: '',
+        quantity: 0
     })
-    const [filter, setFilter] = useState([])
+    const [filter, setFilter] = useState(null)
+    const [cart, setCart] = useState([])
+
+
+
 
     return (
         <ShoppingCartContext.Provider value={{
@@ -24,7 +29,9 @@ function ShoppingCartProvider({ children }) {
             detailData,
             setDetailData,
             filter,
-            setFilter
+            setFilter,
+            cart,
+            setCart
         }} >
 
 

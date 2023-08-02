@@ -1,28 +1,48 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useContext } from 'react'
 import { ShoppingCartContext } from '../../Context'
 import { PlusIcon } from '@heroicons/react/24/solid'
 function Card(data) {
 
+    const product = {
+        id: data.data.id,
+        title: data.data.title,
+        price: data.data.price,
+        image: data.data.images[0],
+        description: data.data.description
+
+    }
+
     const context = useContext(ShoppingCartContext)
 
 
     function trueDetail() {
+
         context.setDetail(true)
-        context.setDetailData({
-            title: data.data.title,
-            price: data.data.price,
-            image: data.data.images[0],
-            description: data.data.description
-        })
-
-
+        context.setDetailData(product)
     }
 
     function addToCart() {
 
-        context.setCount(context.count + 1)
+        const existingProduct = context.cart.find(p => p.id === product.id);
+
+        if (existingProduct) {
+
+            existingProduct.quantity += 1;
+
+
+            const newCart = context.cart.map(p =>
+                p.id === existingProduct.id ? existingProduct : p
+            );
+
+            context.setCart(newCart);
+        } else {
+            context.setCart(prevCart => [...prevCart, { ...product, quantity: 1 }]);
+        }
+
+        context.setCount(context.count + 1);
     }
+
 
 
 
