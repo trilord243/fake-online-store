@@ -7,7 +7,7 @@ import NavBar from '../../Components/Navbar'
 function MyOrders() {
     const context = useContext(ShoppingCartContext)
 
-    const totalPrice = context.cart.reduce((acc, item) => acc + item.price, 0)
+    const totalPrice = context.cart.reduce((acc, item) => acc + item.price * item.quantity, 0)
     return (
         <Layout>
             <NavBar />

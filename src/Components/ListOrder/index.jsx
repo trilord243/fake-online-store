@@ -31,7 +31,7 @@ function ListOrder({ title, image, price, quantity }) {
                 <img className='w-24 h-24  rounded-2xl' src={image} alt={title} />
                 <h2 className='text'> {title} </h2>
                 <h3> {quantity} </h3>
-                <h3> {price}$ </h3>
+                <h3> {price * quantity}$ </h3>
                 <TrashIcon className='w-6 h-6 cursor-pointer ' onClick={deleteProduct} />
 
             </div>
