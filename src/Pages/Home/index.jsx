@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react'
 import Layout from '../../Components/Layout'
-import NavBar from '../../Components/Navbar'
+
 import Card from '../../Components/Card/INDEX.JSX'
 import PorductDetail from '../../Components/ProductDetail'
 import Filter from '../../Components/filter'
 import { ShoppingCartContext } from '../../Context'
+import Navbar from '../../Components/Navbar'
 
 
 function Home() {
@@ -20,7 +21,7 @@ function Home() {
 
     return (
         <Layout>
-            <NavBar />
+            <Navbar />
             <Filter value={value} setValue={setValue} />
             <div className='grid gap-4 grid-cols-4 w-full max-w-screen-lg'>
 

@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import Layout from '../../Components/Layout'
 import { ShoppingCartContext } from '../../Context'
 import ListOrder from '../../Components/ListOrder'
-import NavBar from '../../Components/Navbar'
+import Navbar from '../../Components/Navbar'
 
 function MyOrders() {
     const context = useContext(ShoppingCartContext)
@@ -10,7 +10,7 @@ function MyOrders() {
     const totalPrice = context.cart.reduce((acc, item) => acc + item.price * item.quantity, 0)
     return (
         <Layout>
-            <NavBar />
+            <Navbar />
             <h1>My Order</h1>
             {context.cart.length > 0 ? context.cart.map((order) => <ListOrder title={order.title} image={order.image} price={order.price} totalPrice={totalPrice} quantity={order.quantity} />) : <h1>No hay ordenes</h1>}
 

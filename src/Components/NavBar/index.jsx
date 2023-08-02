@@ -5,7 +5,7 @@ import { ShoppingCartContext } from '../../Context'
 
 import { ShoppingCartIcon } from '@heroicons/react/24/solid'
 
-function NavBar() {
+function Navbar() {
     const [sigIn, setsigIn] = useState(true)
     const context = useContext(ShoppingCartContext)
     const activeStyle = `underline underline-thickness: 2px underline-offset: 2px underline-color: #000`
@@ -57,4 +57,4 @@ function NavBar() {
     )
 }
 
-export default NavBar
+export default Navbar

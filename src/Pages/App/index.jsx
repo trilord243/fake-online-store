@@ -39,9 +39,6 @@ const router = createBrowserRouter([
   {
     path: "*",
     element: <NotFound />
-  }, {
-    path: "/navbar",
-    element: <NavBar />
   },
   {
     path: '/clothes',
@@ -72,7 +69,6 @@ function App() {
 
   return (
     <ShoppingCartProvider>
-
 
       <RouterProvider router={router} />
     </ShoppingCartProvider>
