@@ -1,9 +1,16 @@
 import React from 'react'
 import Layout from '../../Components/Layout'
 
+import Navbar from '../../Components/Navbar'
+import Form from '../../Components/Form'
+
 function SignIn() {
     return (
-        <Layout>SignIn</Layout>
+        <Layout>
+            <Navbar />
+            <Form />
+
+        </Layout>
     )
 }
 

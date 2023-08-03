@@ -18,6 +18,7 @@ function ShoppingCartProvider({ children }) {
     const [filter, setFilter] = useState(null)
     const [cart, setCart] = useState([])
     const [items, setItems] = useState([])
+    const [sigIn, setsigIn] = useState(false)
 
     useEffect(() => {
         fetch('https://api.escuelajs.co/api/v1/products')
@@ -27,6 +28,21 @@ function ShoppingCartProvider({ children }) {
 
 
     }, [])
+
+    const [usernames, setUsernames] = useState([{ 'username': 'admin', 'password': 'admin' }])
+
+    useEffect(() => {
+        if (localStorage.getItem('usernames') != null) {
+            setUsernames(JSON.parse(localStorage.getItem('usernames')))
+        } else {
+            localStorage.setItem('usernames', JSON.stringify(usernames))
+        }
+
+
+
+    }, [])
+
+    const [activeSession, setActiveSession] = useState('')
 
 
     return (
@@ -42,7 +58,13 @@ function ShoppingCartProvider({ children }) {
             cart,
             setCart,
             items,
-            setItems
+            setItems,
+            sigIn,
+            setsigIn,
+            usernames,
+            setUsernames,
+            activeSession,
+            setActiveSession
         }} >
 
 

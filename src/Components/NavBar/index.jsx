@@ -6,7 +6,12 @@ import { ShoppingCartContext } from '../../Context'
 import { ShoppingCartIcon } from '@heroicons/react/24/solid'
 
 function Navbar() {
-    const [sigIn, setsigIn] = useState(true)
+    function handleSignOut() {
+        context.setsigIn(false)
+        context.setActiveSession('')
+    }
+
+
     const context = useContext(ShoppingCartContext)
     const activeStyle = `underline underline-thickness: 2px underline-offset: 2px underline-color: #000`
 
@@ -37,18 +42,30 @@ function Navbar() {
             </ul>
 
             <ul className='flex justify-center gap-3'>
-                {sigIn && <li className='text-black/60'>
-                    escalonaf12gmail.com
+                {context.sigIn && <li className='text-black/60'>
+                    {context.activeSession}
                 </li>}
                 <li>
                     <NavLink to="/my-orders" className={({ isActive }) => isActive ? activeStyle : undefined}>My Orders</NavLink>
                 </li>
-                <li>
-                    <NavLink to="/my-account" className={({ isActive }) => isActive ? activeStyle : undefined}>My Account</NavLink>
-                </li>
-                {!sigIn && <li>
+                {context.sigIn &&
+                    <li>
+                        <NavLink to="/my-account" className={({ isActive }) => isActive ? activeStyle : undefined}>My Account</NavLink>
+                    </li>}
+                {!context.sigIn && <li>
                     <NavLink to="/sign-in" className={({ isActive }) => isActive ? activeStyle : undefined}>Sign in </NavLink>
                 </li>}
+                {
+                    !context.sigIn && <li>
+                        <NavLink to="/register" className={({ isActive }) => isActive ? activeStyle : undefined}>Register </NavLink>
+                    </li>
+                }
+
+                {
+                    context.sigIn && <li>
+                        <p className='cursor-pointer ' onClick={handleSignOut}  >Sign out </p>
+                    </li>
+                }
                 <li className='flex items-center '>
                     <ShoppingCartIcon className='h-6 w-6 '></ShoppingCartIcon> <div> {context.count}  </div>
                 </li>

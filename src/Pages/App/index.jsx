@@ -14,6 +14,7 @@ import Electronics from "../Home/Electronics"
 import Furnitures from "../Home/Furnitures"
 import Others from "../Home/Others"
 import Toys from "../Home/Toys"
+import Register from "../Register"
 
 
 
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
     path: '/others',
     element: <Others />
 
+  },
+  {
+    path: "/register",
+    element: <Register />
   }
 
 
