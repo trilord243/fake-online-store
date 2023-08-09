@@ -1,6 +1,6 @@
 
 import {
-  createBrowserRouter, RouterProvider
+  createBrowserRouter, Navigate, RouterProvider
 } from "react-router-dom"
 import Home from "../Home"
 import MyAccount from "../MyAccount"
@@ -8,13 +8,14 @@ import MyAccount from "../MyAccount"
 import MyOrders from "../MyOrders"
 import NotFound from "../NotFound"
 import SignIn from "../SigIn"
-import { ShoppingCartProvider, ShoppingCartContext } from "../../Context"
+import { ShoppingCartProvider } from "../../Context"
 import Clothes from "../Home/Clothes"
 import Electronics from "../Home/Electronics"
 import Furnitures from "../Home/Furnitures"
 import Others from "../Home/Others"
 import Toys from "../Home/Toys"
 import Register from "../Register"
+
 
 
 
@@ -70,6 +71,7 @@ const router = createBrowserRouter([
 
 ])
 function App() {
+
 
 
   return (

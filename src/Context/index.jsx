@@ -38,8 +38,6 @@ function ShoppingCartProvider({ children }) {
             localStorage.setItem('usernames', JSON.stringify(usernames))
         }
 
-
-
     }, [])
 
     const [activeSession, setActiveSession] = useState('')
